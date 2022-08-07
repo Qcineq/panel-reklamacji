@@ -1,13 +1,13 @@
-package pl.coderslab.panelreklamacji;
+package pl.coderslab.servicepanel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PanelReklamacjiApplication {
+public class ServicePanelApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PanelReklamacjiApplication.class, args);
+        SpringApplication.run(ServicePanelApplication.class, args);
     }
 
 }

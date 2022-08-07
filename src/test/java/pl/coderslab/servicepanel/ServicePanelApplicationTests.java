@@ -1,10 +1,10 @@
-package pl.coderslab.panelreklamacji;
+package pl.coderslab.servicepanel;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PanelReklamacjiApplicationTests {
+class ServicePanelApplicationTests {
 
     @Test
     void contextLoads() {
