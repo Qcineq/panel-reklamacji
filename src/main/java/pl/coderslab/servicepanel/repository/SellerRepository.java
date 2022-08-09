@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import pl.coderslab.servicepanel.entity.ReportEntity;
 
 @Repository
-public interface ReportRepository extends JpaRepository<ReportEntity, Long> {
+public interface SellerRepository extends JpaRepository<ReportEntity, Long> {
 
 }

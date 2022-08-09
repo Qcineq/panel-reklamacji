@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class EmployeeEntity {
+public class SellerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,9 +12,8 @@ public class EmployeeEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private String company;
-    private String position;
+    private String phoneNumber;
 
-    @ManyToMany
+    @OneToMany
     private List<ReportEntity> reportEntity;
 }

@@ -1,19 +1,10 @@
 package pl.coderslab.servicepanel.controller;
 
-import org.springframework.stereotype.Controller;
-import pl.coderslab.servicepanel.repository.CustomerRepository;
-import pl.coderslab.servicepanel.repository.ReportRepository;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-class ReportsController {
-
-    private CustomerRepository customerRepository;
-    private ReportRepository reportRepository;
-
-    public ReportsController(CustomerRepository customerRepository, ReportRepository reportRepository) {
-        this.customerRepository = customerRepository;
-        this.reportRepository = reportRepository;
-    }
-
+@RestController
+@RequestMapping("/reports")
+public class ReportsController {
 
 }
