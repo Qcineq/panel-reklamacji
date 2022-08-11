@@ -1,4 +1,7 @@
-insert into customer_entity(first_Name, last_Name, phone_Number) values('Jan', 'Kowalski', '123456789');
-insert into customer_entity(first_Name, last_Name, phone_Number) values('Adam', 'Adamek', '987654321');
-insert into customer_entity(first_Name, last_Name, phone_Number) values('Dominika', 'Nowak', '456987123');
-insert into customer_entity(first_Name, last_Name, phone_Number) values('Piotr', 'Pawłowski', '510234995');
+insert into roles(name) values('ROLE_SELLER');
+insert into roles(name) values('ROLE_TECHNICIAN');
+
+insert into users(username, password, enabled) values('seller', 'seller', 1);
+
+insert into users_roles(user_id, roles_id) values (1, 1);
+insert into users_roles(user_id, roles_id) values (1, 2);

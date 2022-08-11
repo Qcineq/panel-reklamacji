@@ -1,21 +1,29 @@
 package pl.coderslab.servicepanel.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
+@Table(name = "Seller")
 public class SellerEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String firstName;
+    @NotEmpty
     private String lastName;
+    @Email
+    @NotEmpty
     private String email;
+    @NotEmpty
     private String phoneNumber;
 
-    @OneToMany
-    private List<ReportEntity> reportEntity;
+//    @OneToMany
+//    private List<ReportEntity> reportEntity;
 
     public Long getId() {
         return id;
@@ -57,13 +65,14 @@ public class SellerEntity {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<ReportEntity> getReportEntity() {
-        return reportEntity;
-    }
+//    public List<ReportEntity> getReportEntity() {
+//        return reportEntity;
+//    }
+//
+//    public void setReportEntity(List<ReportEntity> reportEntity) {
+//        this.reportEntity = reportEntity;
+//    }
 
-    public void setReportEntity(List<ReportEntity> reportEntity) {
-        this.reportEntity = reportEntity;
-    }
 
     @Override
     public String toString() {
@@ -73,7 +82,6 @@ public class SellerEntity {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", reportEntity=" + reportEntity +
                 '}';
     }
 }
