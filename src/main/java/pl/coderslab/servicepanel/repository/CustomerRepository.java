@@ -10,7 +10,6 @@ import pl.coderslab.servicepanel.entity.ReportEntity;
 import java.awt.print.Book;
 import java.util.List;
 
-@Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
 
 }

@@ -8,7 +8,6 @@ import pl.coderslab.servicepanel.entity.ReportEntity;
 
 import java.util.List;
 
-@Repository
 public interface ReportRepository extends JpaRepository<ReportEntity, Long> {
 
     @Query("SELECT r FROM ReportEntity r WHERE r.id = :id")

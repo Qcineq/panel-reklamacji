@@ -22,8 +22,8 @@ public class TechnicianEntity {
     @NotEmpty
     private String phoneNumber;
 
-//    @OneToMany
-//    private List<ReportEntity> reportEntity;
+    @OneToMany
+    private List<ReportEntity> reportEntity;
 
     public Long getId() {
         return id;
@@ -65,13 +65,13 @@ public class TechnicianEntity {
         this.phoneNumber = phoneNumber;
     }
 
-//    public List<ReportEntity> getReportEntity() {
-//        return reportEntity;
-//    }
-//
-//    public void setReportEntity(List<ReportEntity> reportEntity) {
-//        this.reportEntity = reportEntity;
-//    }
+    public List<ReportEntity> getReportEntity() {
+        return reportEntity;
+    }
+
+    public void setReportEntity(List<ReportEntity> reportEntity) {
+        this.reportEntity = reportEntity;
+    }
 
     @Override
     public String toString() {
