@@ -20,11 +20,12 @@ class SpringSecurity {
                 .authorizeRequests()
                 .antMatchers("/auth/login").permitAll()
                 .antMatchers("/reports/list").hasAnyRole("SELLER", "TECHNICIAN")
+                .antMatchers("/reports/add").hasRole("SELLER")
                 .and()
                 .exceptionHandling().accessDeniedPage("/auth/403")
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/report/list").and()
-                .logout().logoutSuccessUrl("/auth.login");
+                .logout().logoutSuccessUrl("/auth/login");
         return http.build();
     }
 }
