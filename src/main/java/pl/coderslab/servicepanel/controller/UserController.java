@@ -19,12 +19,12 @@ import java.util.List;
 @Controller
 class UserController {
 
-    private final UserService userService;
     private final RoleService roleService;
+    private final UserService userService;
 
-    UserController(UserService userService, RoleService roleService) {
-        this.userService = userService;
+    public UserController(RoleService roleService, UserService userService) {
         this.roleService = roleService;
+        this.userService = userService;
     }
 
     @ModelAttribute("roles")
@@ -35,20 +35,20 @@ class UserController {
     @GetMapping(path = "/user/add")
     String showAddUserForm(Model model) {
 
-        UserEntity user = new UserEntity();
-        model.addAttribute("user", user);
+        UserEntity userEntity = new UserEntity();
+        model.addAttribute("user", userEntity);
 
         return "user/add";
     }
 
     @PostMapping(path = "/user/add")
-    String processAddUserForm(@Valid UserEntity user, BindingResult result) {
+    String processAddUserForm(@Valid UserEntity userEntity, BindingResult result) {
 
         if (result.hasErrors()) {
             return "user/add";
         }
 
-        userService.save(user);
+        userService.save(userEntity);
 
         return "redirect:/user/list";
     }
@@ -63,23 +63,23 @@ class UserController {
     }
 
     @GetMapping(path = "/user/edit")
-    String showEditUserForm(@RequestParam("id") long userId, Model model) {
+    String showEditUserForm(@RequestParam("id") String email, Model model) {
 
-        UserEntity user = userService.findById(userId).orElseThrow(RuntimeException::new);
-        model.addAttribute("user", user);
+        UserEntity userEntity = userService.findByEmail(email).orElseThrow(RuntimeException::new);
+        model.addAttribute("user", userEntity);
 
         return "user/edit";
     }
 
     @PostMapping(path = "/user/edit")
-    String processUserEditForm(UserEntity user) {
-        userService.update(user);
+    String processUserEditForm(UserEntity userEntity) {
+        userService.update(userEntity);
         return "redirect:/user/list";
     }
 
     @GetMapping(path = "/user/remove")
-    String removeUser(UserEntity user) {
-        userService.delete(user);
+    String removeUser(UserEntity userEntity) {
+        userService.delete(userEntity);
         return "redirect:/user/list";
     }
 }

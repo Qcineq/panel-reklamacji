@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.servicepanel.entity.RoleEntity;
 import pl.coderslab.servicepanel.repository.RoleRepository;
 
-import java.util.Collection;
+import java.util.List;
 
 @Service
 public class RoleService {
@@ -15,7 +15,11 @@ public class RoleService {
         this.roleRepository = roleRepository;
     }
 
-    public Collection<RoleEntity> findAll() {
+    public RoleEntity findRoleByName(String name) {
+        return roleRepository.findByName(name);
+    }
+
+    public List<RoleEntity> findAll() {
         return roleRepository.findAll();
     }
 }

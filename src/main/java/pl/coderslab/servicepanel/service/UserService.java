@@ -26,8 +26,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public Optional<UserEntity> findById(Long userId) {
-        return userRepository.findById(userId);
+    public Optional<UserEntity> findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public List<UserEntity> findAll() {

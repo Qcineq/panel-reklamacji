@@ -15,20 +15,16 @@ class SpringSecurity {
     }
 
     @Bean
-    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable()
                 .authorizeRequests()
-                //.antMatchers("/**").authenticated()
-                .antMatchers("/login").permitAll()
-                .antMatchers("/reports/list").authenticated()
-                .anyRequest().hasRole("ADMIN")
+                .antMatchers("/auth/login").permitAll()
+                .antMatchers("/reports/list").hasAnyRole("SELLER", "TECHNICIAN")
                 .and()
-                .exceptionHandling().accessDeniedPage("/403")
+                .exceptionHandling().accessDeniedPage("/auth/403")
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/report/list").and()
-                .logout().logoutSuccessUrl("/login?test");
-
+                .logout().logoutSuccessUrl("/auth.login");
         return http.build();
     }
 }

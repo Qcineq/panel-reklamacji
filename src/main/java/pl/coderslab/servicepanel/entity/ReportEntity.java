@@ -6,35 +6,32 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
-@Entity
-@Table(name = "Reports_Table")
 @Getter
 @Setter
+@Entity(name = "reports")
 public class ReportEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @NotEmpty
     private String producer;
+
     @NotEmpty
     private String model;
 
-    @ManyToOne
     @NotEmpty
-    private CustomerEntity customerEntity;
+    private String customerName;
+
     @NotEmpty
-    private String description;
+    private String customerPhoneNumber;
+
+    @NotEmpty
+    private String customerEmail;
+
+    @NotEmpty
+    private String problemDescription;
 
 
-
-    @Override
-    public String toString() {
-        return "ReportEntity{" +
-                "id=" + id +
-                ", producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
 }

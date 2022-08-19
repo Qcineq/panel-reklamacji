@@ -1,22 +1,20 @@
 package pl.coderslab.servicepanel.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Entity
-@Table(name = "users")
-@Data
+@Getter
+@Setter
+@Entity(name = "users")
 public class UserEntity implements UserDetails {
 
     @Id
@@ -26,25 +24,23 @@ public class UserEntity implements UserDetails {
     @Column(length = 50, nullable = false, unique = true)
     @Size(min = 4)
     @NotNull
-    private String username;
+    private String email;
 
+    @Column(length = 500, nullable = false)
     @Size(min = 4)
     @NotNull
-    @Column(length = 500, nullable = false)
     private String password;
 
-    private boolean enabled;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private RoleEntity roleEntity;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @NotEmpty
-    private List<RoleEntity> roles = new ArrayList<>();
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(roleEntity.getName()));
+    }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles.stream()
-                .map(RoleEntity::getName)
-                .map(SimpleGrantedAuthority::new)
-                .collect(Collectors.toList());
+    public String getUsername() {
+        return getEmail();
     }
 
     @Override
@@ -61,4 +57,10 @@ public class UserEntity implements UserDetails {
     public boolean isCredentialsNonExpired() {
         return true;
     }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }
