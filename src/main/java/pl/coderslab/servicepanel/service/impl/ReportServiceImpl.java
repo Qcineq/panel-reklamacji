@@ -21,4 +21,19 @@ public class ReportServiceImpl implements ReportService {
         return reportRepository.findAll();
     }
 
+    @Override
+    public ReportEntity saveReport(ReportEntity report) {
+        return reportRepository.save(report);
+    }
+
+    @Override
+    public ReportEntity getReportById(Long id) {
+        return reportRepository.findById(id).get();
+    }
+
+    @Override
+    public ReportEntity reportDetails(ReportEntity report) {
+        return reportRepository.save(report);
+    }
+
 }

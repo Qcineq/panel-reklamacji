@@ -7,4 +7,9 @@ import java.util.List;
 public interface ReportService {
 
     List<ReportEntity> getAllReports();
+
+    ReportEntity saveReport(ReportEntity report);
+
+    ReportEntity getReportById(Long id);
+    ReportEntity reportDetails(ReportEntity report);
 }

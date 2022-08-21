@@ -3,6 +3,9 @@ package pl.coderslab.servicepanel.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.servicepanel.entity.ReportEntity;
 import pl.coderslab.servicepanel.service.ReportService;
 
@@ -26,5 +29,17 @@ public class ReportController {
         ReportEntity report = new ReportEntity();
         model.addAttribute("report", report);
         return "create_report";
+    }
+
+    @PostMapping("/reports")
+    public String saveReport(@ModelAttribute("report") ReportEntity report) {
+        reportService.saveReport(report);
+        return "redirect:/reports";
+    }
+
+    @GetMapping("/reports/details/{id}")
+    public String reportDetails(@PathVariable Long id, Model model) {
+        model.addAttribute("report", reportService.getReportById(id));
+        return "report_details";
     }
 }
