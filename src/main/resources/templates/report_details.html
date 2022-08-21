@@ -50,6 +50,34 @@
             <li class="list-group-item"><span th:text="${report.customerFirstName}"></span><span> </span><span th:text="${report.customerLastName}"></span></li>
         </ul>
     </div>
+    <br>
+    <div class="card" style="width: 35rem;">
+        <div class="card-header">
+            Telefon kontaktowy
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span th:text="${report.customerPhoneNumber}"></span></li>
+        </ul>
+    </div>
+    <br>
+    <div class="card" style="width: 35rem;">
+        <div class="card-header">
+            Opis Problemu
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span th:text="${report.problemDescription}"></span></li>
+        </ul>
+    </div>
+    <br>
+    <div class="card" style="width: 35rem;">
+        <div class="card-header">
+            Diagnoza serwisowa
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><span th:text="${report.reportDiagnosis}"></span></li>
+        </ul>
+    </div>
+    <br>
 </div>
 </body>
 </html>

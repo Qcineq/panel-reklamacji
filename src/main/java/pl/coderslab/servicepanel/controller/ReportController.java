@@ -18,10 +18,18 @@ public class ReportController {
         this.reportService = reportService;
     }
 
+    // Seller view
     @GetMapping("/reports")
     public String reportList(Model model) {
         model.addAttribute("reports", reportService.getAllReports());
         return "reports";
+    }
+
+    // tech view
+    @GetMapping("/tech/reports")
+    public String techReportList(Model model) {
+        model.addAttribute("reports", reportService.getAllReports());
+        return "tech_reports_list";
     }
 
     @GetMapping("/reports/new")
@@ -37,9 +45,35 @@ public class ReportController {
         return "redirect:/reports";
     }
 
+    // Seller view
     @GetMapping("/reports/details/{id}")
     public String reportDetails(@PathVariable Long id, Model model) {
         model.addAttribute("report", reportService.getReportById(id));
         return "report_details";
+    }
+
+    // tech view
+    @GetMapping("/tech/reports/details/{id}")
+    public String techReportDetails(@PathVariable Long id, Model model) {
+        model.addAttribute("report", reportService.getReportById(id));
+        return "tech_report_details";
+    }
+    @GetMapping("/reports/edit/{id}")
+    public String reportDiagnosis(@PathVariable Long id, Model model) {
+        model.addAttribute("report", reportService.getReportById(id));
+        return "report_diagnosis";
+    }
+
+    @PostMapping("/reports/{id}")
+    public String updateReport(@PathVariable Long id, @ModelAttribute("report") ReportEntity report, Model model) {
+
+        // get report from database by id
+        ReportEntity existingReport = reportService.getReportById(id);
+        existingReport.setId(id);
+        existingReport.setReportDiagnosis(report.getReportDiagnosis());
+
+        // save updated report object
+        reportService.reportDiagnosis(existingReport);
+        return "redirect:/tech/reports";
     }
 }

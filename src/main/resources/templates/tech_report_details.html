@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Reklamacji</title>
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" th:href="@{/tech/reports}">Panel</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/tech/reports}">Naprawy</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<div class="container">
+  <div class="row">
+    <h1> Szczegóły naprawy </h1>
+  </div>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Producent i model
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.producer}"></span><span> </span><span th:text="${report.model}"></span></li>
+    </ul>
+  </div>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Imię i nazwisko
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.customerFirstName}"></span><span> </span><span th:text="${report.customerLastName}"></span></li>
+    </ul>
+  </div>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Telefon kontaktowy
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.customerPhoneNumber}"></span></li>
+    </ul>
+  </div>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Opis Problemu
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.problemDescription}"></span></li>
+    </ul>
+  </div>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Diagnoza serwisowa
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.reportDiagnosis}"></span></li>
+    </ul>
+  </div>
+  <br>
+  <a th:href = "@{/reports/edit/{id}(id=${report.id})}"
+     class = "btn btn-primary">Dodaj diagnozę</a>
+</div>
+</body>
+</html>

@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" th:href="@{/reports}">Panel</a>
+    <a class="navbar-brand" th:href="@{/tech/reports}">Panel</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" th:href="@{/reports}">Naprawy</a>
+                <a class="nav-link" th:href="@{/tech/reports}">Naprawy</a>
             </li>
         </ul>
     </div>
@@ -32,6 +32,7 @@
     <div class="row">
         <h1> Lista Napraw </h1>
     </div>
+    <br>
     <table class="table table-striped table-bordered">
         <thead class="table-dark">
         <tr>
@@ -46,8 +47,8 @@
             <td th:text="${report.id}"></td>
             <td><span th:text="${report.producer}"></span><span> </span><span th:text="${report.model}"></span></td>
             <td>
-                <a th:href = "@{/students/edit/{id}(id=${student.id})}"
-                   class = "btn btn-primary">Dodaj diagnozę</a>
+                <a th:href = "@{/tech/reports/details/{id}(id=${report.id})}"
+                   class = "btn btn-link">Szczegóły</a>
             </td>
         </tr>
         </tbody>

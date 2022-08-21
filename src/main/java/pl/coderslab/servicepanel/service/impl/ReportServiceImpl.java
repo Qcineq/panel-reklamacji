@@ -36,4 +36,9 @@ public class ReportServiceImpl implements ReportService {
         return reportRepository.save(report);
     }
 
+    @Override
+    public ReportEntity reportDiagnosis(ReportEntity report) {
+        return reportRepository.save(report);
+    }
+
 }

@@ -20,17 +20,20 @@ public class ReportEntity {
     private String customerPhoneNumber;
     @Column(name = "problem_description")
     private String problemDescription;
+    @Column(name = "reportDiagnosis")
+    private String reportDiagnosis;
 
     public ReportEntity() {
 
     }
-    public ReportEntity(String producer, String model, String customerFirstName, String customerLastName, String customerPhoneNumber, String problemDescription) {
+    public ReportEntity(String producer, String model, String customerFirstName, String customerLastName, String customerPhoneNumber, String problemDescription, String reportDiagnosis) {
         this.producer = producer;
         this.model = model;
         this.customerFirstName = customerFirstName;
         this.customerLastName = customerLastName;
         this.customerPhoneNumber = customerPhoneNumber;
         this.problemDescription = problemDescription;
+        this.reportDiagnosis = reportDiagnosis;
     }
 
     public Long getId() {
@@ -89,4 +92,11 @@ public class ReportEntity {
         this.problemDescription = problemDescription;
     }
 
+    public String getReportDiagnosis() {
+        return reportDiagnosis;
+    }
+
+    public void setReportDiagnosis(String reportDiagnosis) {
+        this.reportDiagnosis = reportDiagnosis;
+    }
 }
