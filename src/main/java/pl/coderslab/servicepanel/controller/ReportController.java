@@ -71,6 +71,7 @@ public class ReportController {
         ReportEntity existingReport = reportService.getReportById(id);
         existingReport.setId(id);
         existingReport.setReportDiagnosis(report.getReportDiagnosis());
+        existingReport.setReportState(report.getReportState());
 
         // save updated report object
         reportService.reportDiagnosis(existingReport);

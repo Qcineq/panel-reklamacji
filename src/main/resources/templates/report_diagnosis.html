@@ -106,29 +106,46 @@
                                 disabled
                         />
                     </div>
-                    <label>Diagnoza:</label>
-                    <input
-                            type="text"
-                            name="reportDiagnosis"
-                            th:field="*{reportDiagnosis}"
-                            class="form-control"
-                            placeholder="Wprowadź diagnozę"
-                    />
+
+                    <div class="form-group">
+                        <label>Diagnoza:</label>
+                        <input
+                                type="text"
+                                name="reportDiagnosis"
+                                th:field="*{reportDiagnosis}"
+                                class="form-control"
+                                placeholder="Wprowadź diagnozę"
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Stan naprawy: </label>
+                        <select name="reportState" id="reportState">
+                            <option value="Nowe">Nowe</option>
+                            <option value="Oczekuje na dostarczenie">Oczekuje na dostarczenie</option>
+                            <option value="W trakcie diagnozy">W trakcie diagnozy</option>
+                            <option value="Wymienione">Wymienione</option>
+                            <option value="Naprawione">Naprawione</option>
+                            <option value="Wyjątek">Wyjątek</option>
+                            <option value="Odrzucone">Odrzucone</option>
+                            <option value="Anulowane">Anulowane</option>
+                            <option value="Odesłane do klienta">Odesłane do klienta</option>
+                        </select>
+                    </div>
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">
+                            Wyślij
+                        </button>
+                        <a th:href="@{/tech/reports}"
+                           class="btn btn-link">Anuluj</a>
+                    </div>
+                </form>
             </div>
 
-            <div class="box-footer">
-                <button type="submit" class="btn btn-primary">
-                    Wyślij
-                </button>
-                <a th:href="@{/tech/reports}"
-                   class="btn btn-link">Anuluj</a>
-            </div>
-            </form>
         </div>
 
     </div>
-
-</div>
 </div>
 </body>
 </html>

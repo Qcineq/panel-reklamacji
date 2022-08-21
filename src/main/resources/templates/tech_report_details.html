@@ -78,6 +78,16 @@
     </ul>
   </div>
   <br>
+  <br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+      Stan naprawy
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><span th:text="${report.reportState}"></span></li>
+    </ul>
+  </div>
+  <br>
   <a th:href = "@{/reports/edit/{id}(id=${report.id})}"
      class = "btn btn-primary">Dodaj diagnozę</a>
 </div>

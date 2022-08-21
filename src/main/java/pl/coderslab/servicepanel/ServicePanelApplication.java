@@ -20,11 +20,11 @@ public class ServicePanelApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        ReportEntity report1 = new ReportEntity("GoPro", "HERO10", "Jan", "Kowalski","123456789", "Nie działa", "Naprawiona");
+        ReportEntity report1 = new ReportEntity("GoPro", "HERO10", "Jan", "Kowalski","123456789", "Nie działa", "Naprawiona","Nowe");
         reportRepository.save(report1);
-        ReportEntity report2 = new ReportEntity("GoPro", "HERO9", "Adam", "Nowak","987654321", "Zawiesza się", "Wymieniona");
+        ReportEntity report2 = new ReportEntity("GoPro", "HERO9", "Adam", "Nowak","987654321", "Zawiesza się", "Wymieniona", "Nowe");
         reportRepository.save(report2);
-        ReportEntity report3 = new ReportEntity("GoPro", "HERO8", "Piotr", "Adamiak","567987123", "Nie nagrywa", "");
+        ReportEntity report3 = new ReportEntity("GoPro", "HERO8", "Piotr", "Adamiak","567987123", "Nie nagrywa", "", "Nowe");
         reportRepository.save(report3);
     }
 

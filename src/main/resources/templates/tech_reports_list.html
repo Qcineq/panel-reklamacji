@@ -34,10 +34,11 @@
     </div>
     <br>
     <table class="table table-striped table-bordered">
-        <thead class="table-dark">
+        <thead>
         <tr>
             <th>Numer naprawy</th>
             <th>Przedmiot naprawy</th>
+            <th>Stan naprawy</th>
             <th>Akcje</th>
         </tr>
         </thead>
@@ -46,6 +47,7 @@
         <tr th:each="report: ${reports}">
             <td th:text="${report.id}"></td>
             <td><span th:text="${report.producer}"></span><span> </span><span th:text="${report.model}"></span></td>
+            <td th:text="${report.reportState}"></td>
             <td>
                 <a th:href = "@{/tech/reports/details/{id}(id=${report.id})}"
                    class = "btn btn-link">Szczegóły</a>
