@@ -5,7 +5,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import pl.coderslab.servicepanel.entity.ReportEntity;
+import pl.coderslab.servicepanel.entity.UserEntity;
 import pl.coderslab.servicepanel.repository.ReportRepository;
+import pl.coderslab.servicepanel.repository.UserRepository;
 
 @SpringBootApplication
 public class ServicePanelApplication implements CommandLineRunner {
