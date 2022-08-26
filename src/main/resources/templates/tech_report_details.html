@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <title>Panel Reklamacji</title>
@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <!-- Brand -->
-  <a class="navbar-brand" th:href="@{/tech/reports}">Panel</a>
+  <a class="navbar-brand" th:href="@{/index}">Panel</a>
 
   <!-- Toggler/collapsibe Button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -24,6 +24,11 @@
       <li class="nav-item">
         <a class="nav-link" th:href="@{/tech/reports}">Naprawy</a>
       </li>
+    </ul>
+  </div>
+  <div id="navbar" class="collapse navbar-collapse justify-content-end">
+    <ul class="nav navbar-nav">
+      <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
     </ul>
   </div>
 </nav>
