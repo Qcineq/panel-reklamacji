@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
-        <a class="navbar-brand" th:href="@{/index}">Panel</a>
+    <a class="navbar-brand" th:href="@{/index}">Panel</a>
 
     <!-- Toggler/collapsibe Button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -24,6 +24,9 @@
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/reports}">Naprawy</a>
             </li>
+            <li>
+                <a class="nav-link" th:href="@{/tech/reports}">Serwisant</a>
+            </li>
         </ul>
     </div>
     <div id="navbar" class="collapse navbar-collapse justify-content-end">
@@ -33,8 +36,16 @@
     </div>
 </nav>
 
-<h1 class="container justify-content-center" >Panel serwisowy</h1>
+<h1 class="container justify-content-center">Panel serwisowy</h1>
 Cześć <span sec:authentication="principal.username"> User</span>
+<br>
+<br>
+<br>
+<div class="container justify-content-center">
+    <a th:href="@{/reports}" class="btn btn-primary bt-sm mb-3">Zgłoszenie napraw</a>
+    <a th:href="@{/tech/reports}" class="btn btn-primary bt-sm mb-3">Serwisant</a>
+
+</div>
 
 </body>
 </html>
